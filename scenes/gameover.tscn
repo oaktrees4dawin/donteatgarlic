@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://2kvtfw44xlhs"]
+
+[ext_resource type="Script" uid="uid://cn8k0c7ewt8vw" path="res://scenes/button2.gd" id="1_ncp31"]
+
+[node name="Title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -4.0
+offset_right = -1.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 289.0
+offset_top = 204.0
+offset_right = 489.0
+offset_bottom = 227.0
+text = "You lost!"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 404.0
+offset_top = 308.0
+offset_right = 450.0
+offset_bottom = 339.0
+text = "Play again"
+script = ExtResource("1_ncp31")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

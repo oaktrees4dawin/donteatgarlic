@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://b4h063ihdcdre"]
+
+[ext_resource type="Script" uid="uid://dg5pbs8icfl1j" path="res://scripts/pickup_drop.gd" id="1_n3sop"]
+[ext_resource type="Texture2D" uid="uid://7dq8t4fldhj1" path="res://sprites/New Piskel (1).png" id="2_n3sop"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8i0xm"]
+atlas = ExtResource("2_n3sop")
+region = Rect2(0, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_guncg"]
+atlas = ExtResource("2_n3sop")
+region = Rect2(120, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6gig"]
+atlas = ExtResource("2_n3sop")
+region = Rect2(0, 120, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0n43e"]
+atlas = ExtResource("2_n3sop")
+region = Rect2(120, 120, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6dh6"]
+atlas = ExtResource("2_n3sop")
+region = Rect2(0, 240, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72uk4"]
+atlas = ExtResource("2_n3sop")
+region = Rect2(120, 240, 120, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aswr5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8i0xm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_guncg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6gig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0n43e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6dh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72uk4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 18.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6c1ku"]
+radius = 28.30279
+
+[node name="Area2D" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_n3sop")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -4
+z_as_relative = false
+position = Vector2(4, -10)
+scale = Vector2(0.24566443, 0.24566442)
+sprite_frames = SubResource("SpriteFrames_aswr5")
+autoplay = "default"
+frame_progress = 0.65053123
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -9)
+scale = Vector2(0.24566443, 0.24566445)
+shape = SubResource("CircleShape2D_6c1ku")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
